@@ -1,0 +1,15 @@
+---
+import Container from '../ui/Container.astro';
+import type { LandingContent } from '../../types/landing';
+type Props = { content: LandingContent['hero']; contactId: string };
+const { content, contactId } = Astro.props;
+---
+
+<section class="hero">
+  <Container>
+    <p class="eyebrow">{content.eyebrow}</p>
+    <h1>{content.title}</h1>
+    <p class="lead">{content.description}</p>
+    <a class="button" href={`#${contactId}`}>{content.actionLabel}</a>
+  </Container>
+</section>

@@ -1,0 +1,13 @@
+---
+import Container from '../ui/Container.astro';
+
+interface Props { text: string }
+const { text } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <Container>
+    <p>{text} © {year}</p>
+  </Container>
+</footer>

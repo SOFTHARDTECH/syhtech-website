@@ -1,0 +1,8 @@
+---
+import Container from '../ui/Container.astro';
+import type { LandingContent } from '../../types/landing';
+type Props = { content: LandingContent['about']; id: string };
+const { content, id } = Astro.props;
+---
+
+<section id={id} class="section section-muted"><Container><p class="eyebrow">{content.eyebrow}</p><h2>{content.title}</h2><p class="lead">{content.description}</p></Container></section>

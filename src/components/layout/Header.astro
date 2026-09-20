@@ -1,0 +1,20 @@
+---
+import Container from '../ui/Container.astro';
+import LanguageSwitcher from '../ui/LanguageSwitcher.astro';
+import type { LandingContent } from '../../types/landing';
+
+type Props = Pick<LandingContent, 'locale' | 'navigation' | 'languageLabel'>;
+const { locale, navigation, languageLabel } = Astro.props;
+---
+
+<header class="site-header">
+  <Container class="header-content">
+    <a class="brand" href={locale === 'es' ? '/' : '/en'} aria-label="SYHTECH">SYHTECH</a>
+    <nav aria-label={locale === 'es' ? 'Navegación principal' : 'Main navigation'}>
+      <ul>
+        {navigation.map((item) => <li><a href={item.href}>{item.label}</a></li>)}
+      </ul>
+    </nav>
+    <LanguageSwitcher locale={locale} label={languageLabel} />
+  </Container>
+</header>

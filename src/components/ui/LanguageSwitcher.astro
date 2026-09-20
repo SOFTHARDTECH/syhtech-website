@@ -1,0 +1,13 @@
+---
+import type { Locale } from '../../types/landing';
+
+interface Props {
+  locale: Locale;
+  label: string;
+}
+
+const { locale, label } = Astro.props;
+const href = locale === 'es' ? '/en' : '/';
+---
+
+<a class="language-switcher" href={href} hreflang={locale === 'es' ? 'en' : 'es'}>{label}</a>

@@ -1,0 +1,17 @@
+---
+import LandingLayout from '../../layouts/LandingLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import Services from '../../components/sections/Services.astro';
+import About from '../../components/sections/About.astro';
+import Process from '../../components/sections/Process.astro';
+import Contact from '../../components/sections/Contact.astro';
+import { landingEn } from '../../data/landing/en';
+---
+
+<LandingLayout content={landingEn}>
+  <Hero content={landingEn.hero} contactId="contact" />
+  <Services content={landingEn.services} id="services" />
+  <About content={landingEn.about} id="about" />
+  <Process content={landingEn.process} id="approach" />
+  <Contact content={landingEn.contact} id="contact" />
+</LandingLayout>

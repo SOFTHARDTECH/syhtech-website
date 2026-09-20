@@ -1,0 +1,9 @@
+:root {
+  --color-ink: #11213b;
+  --color-surface: #f6f8fb;
+  --color-accent: #1167d8;
+  --color-white: #ffffff;
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-heading: 'Bebas Neue', ui-sans-serif, system-ui, sans-serif;
+  --content-width: 72rem;
+}

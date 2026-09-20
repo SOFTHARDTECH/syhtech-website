@@ -1,0 +1,49 @@
+---
+type HeadingLevel = 'h1' | 'h2' | 'h3';
+type HeadingAlignment = 'start' | 'center';
+
+interface Props {
+  as?: HeadingLevel;
+  title: string;
+  subtitle: string;
+  id?: string;
+  align?: HeadingAlignment;
+}
+
+const { as: Tag = 'h2', title, subtitle, id, align = 'start' } = Astro.props;
+
+const sizes: Record<HeadingLevel, { title: string; subtitle: string }> = {
+  h1: {
+    title: 'text-5xl sm:text-6xl lg:text-7xl',
+    subtitle: 'text-base sm:text-lg',
+  },
+  h2: {
+    title: 'text-4xl sm:text-5xl lg:text-6xl',
+    subtitle: 'text-base sm:text-lg',
+  },
+  h3: {
+    title: 'text-3xl sm:text-4xl lg:text-5xl',
+    subtitle: 'text-sm sm:text-base',
+  },
+};
+
+const alignments: Record<HeadingAlignment, string> = {
+  start: 'justify-items-start text-start',
+  center: 'justify-items-center text-center',
+};
+---
+
+<header class:list={['grid gap-3', alignments[align]]}>
+  <Tag
+    id={id}
+    class:list={[
+      'm-0 font-[var(--font-heading)] font-normal leading-[.95] tracking-wide',
+      sizes[Tag].title,
+    ]}
+  >
+    {title}
+  </Tag>
+  <p class:list={['m-0 max-w-2xl font-[var(--font-sans)] font-normal leading-relaxed', sizes[Tag].subtitle]}>
+    {subtitle}
+  </p>
+</header>

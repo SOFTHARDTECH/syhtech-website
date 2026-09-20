@@ -1,0 +1,27 @@
+---
+import { Construction } from '@lucide/astro';
+import logo from '../../assets/images/logo.svg';
+import mobileLogo from '../../assets/images/logo-mobile.svg';
+import Heading from '../ui/Heading.astro';
+---
+
+<section class="in-progress" aria-labelledby="in-progress-title">
+  <div class="in-progress__background" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 42rem)" srcset={mobileLogo.src} />
+      <img src={logo.src} alt="" />
+    </picture>
+  </div>
+  <div class="in-progress__content">
+    <div class="in-progress__glass grid gap-3">
+      <Construction class="in-progress__icon" size={52} strokeWidth={1.5} aria-hidden="true" />
+      <Heading
+        as="h1"
+        id="in-progress-title"
+        title="En proceso"
+        subtitle="Estamos preparando una nueva experiencia. Volvemos pronto."
+        align="center"
+      />
+    </div>
+  </div>
+</section>
